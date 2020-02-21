@@ -3,15 +3,13 @@ import Nav from './Nav';
 import Title from './Title';
 import Content from './Content';
 
-export default function Body(props) {
-    console.log(props.checkStatus);
-
+export default function Body() {
     return (
 
         <div className="body">
             <Title/>
-            <Nav checkStatus={props.checkStatus}/>
-            <Content checkStatus={props.checkStatus}/>
+            <Nav />
+            <Content />
         </div>
     )
 }

@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Body from './components/Body/Body';
+import { Context } from './contexts/modal';
 
 function App() {
   const [showIcon, setShowIcon] = useState(false)
-  const changStatus =() =>{
+  const changeStatus = () => {
     setShowIcon(!showIcon)
   }
   return (
-    <div className="App">
-      <Header changStatus={changStatus} checkStatus={showIcon}/>
-      <Body checkStatus={showIcon}/>
-    </div>
+    <Context.Provider
+      value={{
+        showIcon:showIcon,
+        changeStatus:changeStatus
+      }}
+    >
+      <div className="App">
+        <Header />
+        <Body checkStatus={showIcon} />
+      </div>
+    </Context.Provider>
   );
 }
 

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Element from './Element'
+import { Context } from '../../contexts/modal'
 
-export default function Content(props) {
-
-
+export default function Content() {
+    const Status = useContext(Context)
     return (
         <div>
 
@@ -25,7 +25,7 @@ export default function Content(props) {
                 <img src="https://img.icons8.com/color/24/000000/deciduous-tree.png" style={{ display: props.checkStatus ? '' : 'none' }} alt="" />
             </p> */}
             <p>
-                In a typical {props.checkStatus ? <Element item={Text} params={{ text: 'React' }} /> : <Element item={Image} params={{ url: 'https://img.icons8.com/nolan/24/react-native.png' }} />}   application, data is passed top -down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are  required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the {props.checkStatus ? <Element item={Text} params={{ text: 'tree' }} /> : <Element item={Image} params={{ url: 'https://img.icons8.com/color/24/000000/deciduous-tree.png' }} />}.
+                In a typical {Status.showIcon ? <Element item={Image} params={{ url: 'https://img.icons8.com/nolan/24/react-native.png' }} /> : <Element item={Text} params={{ text: 'React' }} />}   application, data is passed top -down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are  required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the {Status.showIcon ? <Element item={Image} params={{ url: 'https://img.icons8.com/color/24/000000/deciduous-tree.png' }} /> : <Element item={Text} params={{ text: 'tree' }} />}.
             </p>
         </div>
     )
